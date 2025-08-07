@@ -58,5 +58,17 @@
   "bluesky": {
     "width": 24,
     "height": 24
+  },
+  "facebook": {
+    "width": 24,
+    "height": 24
+  },
+  "zalo": {
+    "width": 24,
+    "height": 24
+  },
+  "telegram": {
+    "width": 24,
+    "height": 24
   }
 }

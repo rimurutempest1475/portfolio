@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <defs>
+    <symbol id="french-project" viewBox="0 0 751 136">
+      <!-- Texte en français pour les projets -->
+      <text x="50" y="80" font-family="Arial, sans-serif" font-size="24" fill="currentColor" opacity="0.1">
+        PROJETS
+      </text>
+      <text x="200" y="80" font-family="Arial, sans-serif" font-size="18" fill="currentColor" opacity="0.08">
+        DÉVELOPPEMENT
+      </text>
+      <text x="350" y="80" font-family="Arial, sans-serif" font-size="16" fill="currentColor" opacity="0.06">
+        WEB
+      </text>
+      <text x="450" y="80" font-family="Arial, sans-serif" font-size="14" fill="currentColor" opacity="0.05">
+        DESIGN
+      </text>
+      <text x="550" y="80" font-family="Arial, sans-serif" font-size="12" fill="currentColor" opacity="0.04">
+        CRÉATIF
+      </text>
+      <text x="650" y="80" font-family="Arial, sans-serif" font-size="10" fill="currentColor" opacity="0.03">
+        INNOVATION
+      </text>
+      
+      <!-- Mots supplémentaires en français -->
+      <text x="100" y="110" font-family="Arial, sans-serif" font-size="20" fill="currentColor" opacity="0.07">
+        PORTFOLIO
+      </text>
+      <text x="300" y="110" font-family="Arial, sans-serif" font-size="16" fill="currentColor" opacity="0.06">
+        EXPÉRIENCE
+      </text>
+      <text x="500" y="110" font-family="Arial, sans-serif" font-size="14" fill="currentColor" opacity="0.05">
+        TALENT
+      </text>
+    </symbol>
+    
+    <symbol id="french-profile" viewBox="0 0 136 766">
+      <!-- Texte en français pour le profil -->
+      <text x="20" y="100" font-family="Arial, sans-serif" font-size="18" fill="currentColor" opacity="0.08" transform="rotate(-90 20 100)">
+        PROFIL
+      </text>
+      <text x="20" y="200" font-family="Arial, sans-serif" font-size="16" fill="currentColor" opacity="0.07" transform="rotate(-90 20 200)">
+        DÉVELOPPEUR
+      </text>
+      <text x="20" y="300" font-family="Arial, sans-serif" font-size="14" fill="currentColor" opacity="0.06" transform="rotate(-90 20 300)">
+        CRÉATIF
+      </text>
+      <text x="20" y="400" font-family="Arial, sans-serif" font-size="12" fill="currentColor" opacity="0.05" transform="rotate(-90 20 400)">
+        PASSIONNÉ
+      </text>
+      <text x="20" y="500" font-family="Arial, sans-serif" font-size="10" fill="currentColor" opacity="0.04" transform="rotate(-90 20 500)">
+        INNOVATEUR
+      </text>
+      <text x="20" y="600" font-family="Arial, sans-serif" font-size="8" fill="currentColor" opacity="0.03" transform="rotate(-90 20 600)">
+        TALENTUEUX
+      </text>
+      
+      <!-- Mots supplémentaires -->
+      <text x="60" y="150" font-family="Arial, sans-serif" font-size="16" fill="currentColor" opacity="0.07" transform="rotate(-90 60 150)">
+        EXPERT
+      </text>
+      <text x="60" y="250" font-family="Arial, sans-serif" font-size="14" fill="currentColor" opacity="0.06" transform="rotate(-90 60 250)">
+        PROFESSIONNEL
+      </text>
+      <text x="60" y="350" font-family="Arial, sans-serif" font-size="12" fill="currentColor" opacity="0.05" transform="rotate(-90 60 350)">
+        DÉDIÉ
+      </text>
+      <text x="60" y="450" font-family="Arial, sans-serif" font-size="10" fill="currentColor" opacity="0.04" transform="rotate(-90 60 450)">
+        MOTIVÉ
+      </text>
+      <text x="60" y="550" font-family="Arial, sans-serif" font-size="8" fill="currentColor" opacity="0.03" transform="rotate(-90 60 550)">
+        INSPIRÉ
+      </text>
+    </symbol>
+  </defs>
+</svg> 

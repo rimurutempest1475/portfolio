@@ -12,13 +12,12 @@ import { Link as RouterLink, useLoaderData } from '@remix-run/react';
 import { useState, useEffect } from 'react';
 import { formatDate } from '~/utils/date';
 import { classes, cssProps } from '~/utils/style';
-import styles from './articles.module.css';
+import styles from './certificates.module.css';
 
-function ArticlesPost({ slug, frontmatter, timecode, index }) {
+function CertificatePost({ id, title, issuer, date, image, description, featured, index }) {
   const [hovered, setHovered] = useState(false);
   const [dateTime, setDateTime] = useState(null);
   const reduceMotion = useReducedMotion();
-  const { title, abstract, date, featured, banner } = frontmatter;
 
   useEffect(() => {
     setDateTime(formatDate(date));
@@ -40,16 +39,16 @@ function ArticlesPost({ slug, frontmatter, timecode, index }) {
     >
       {featured && (
         <Text className={styles.postLabel} size="s">
-          Featured
+          Nổi bật
         </Text>
       )}
-      {featured && !!banner && (
+      {featured && !!image && (
         <div className={styles.postImage}>
           <Image
             noPauseButton
             play={!reduceMotion ? hovered : undefined}
-            src={banner}
-            placeholder={`${banner.split('.')[0]}-placeholder.jpg`}
+            src={image}
+            placeholder={`${image.split('.')[0]}-placeholder.jpg`}
             alt=""
             role="presentation"
           />
@@ -58,7 +57,7 @@ function ArticlesPost({ slug, frontmatter, timecode, index }) {
       <RouterLink
         unstable_viewTransition
         prefetch="intent"
-        to={`/articles/${slug}`}
+        to={`/certificates/${id}`}
         className={styles.postLink}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -71,22 +70,25 @@ function ArticlesPost({ slug, frontmatter, timecode, index }) {
           <Heading as="h2" level={featured ? 2 : 4}>
             {title}
           </Heading>
+          <Text size="s" as="p" className={styles.issuer}>
+            {issuer}
+          </Text>
           <Text size={featured ? 'l' : 's'} as="p">
-            {abstract}
+            {description}
           </Text>
           <div className={styles.postFooter}>
             <Button secondary iconHoverShift icon="chevron-right" as="div">
-              Read article
+              Xem chi tiết
             </Button>
             <Text className={styles.timecode} size="s">
-              {timecode}
+              Chứng chỉ
             </Text>
           </div>
         </div>
       </RouterLink>
       {featured && (
         <Text aria-hidden className={styles.postTag} size="s">
-          477
+          {id}
         </Text>
       )}
     </article>
@@ -105,7 +107,7 @@ function SkeletonPost({ index }) {
         <div className={styles.postDetails}>
           <div aria-hidden className={styles.postDate}>
             <Divider notchWidth="64px" notchHeight="8px" />
-            Coming soon...
+            Sắp có...
           </div>
           <Heading
             className={styles.skeletonBone}
@@ -121,10 +123,10 @@ function SkeletonPost({ index }) {
           />
           <div className={styles.postFooter}>
             <Button secondary iconHoverShift icon="chevron-right" as="div">
-              Read more
+              Xem thêm
             </Button>
             <Text className={styles.timecode} size="s">
-              00:00:00:00
+              Chứng chỉ
             </Text>
           </div>
         </div>
@@ -133,26 +135,26 @@ function SkeletonPost({ index }) {
   );
 }
 
-export function Articles() {
-  const { posts, featured } = useLoaderData();
+export function Certificates() {
+  const { certificates, featured } = useLoaderData();
   const { width } = useWindowSize();
   const singleColumnWidth = 1190;
   const isSingleColumn = width <= singleColumnWidth;
 
-  const postsHeader = (
+  const certificatesHeader = (
     <header className={styles.header}>
       <Heading className={styles.heading} level={5} as="h1">
-        <DecoderText text="Latest articles" />
+        <DecoderText text="Chứng chỉ của tôi" />
       </Heading>
       <Barcode className={styles.barcode} />
     </header>
   );
 
-  const postList = (
+  const certificateList = (
     <div className={styles.list}>
-      {!isSingleColumn && postsHeader}
-      {posts.map(({ slug, ...post }, index) => (
-        <ArticlesPost key={slug} slug={slug} index={index} {...post} />
+      {!isSingleColumn && certificatesHeader}
+      {certificates.map((certificate, index) => (
+        <CertificatePost key={certificate.id} index={index} {...certificate} />
       ))}
       {Array(2)
         .fill()
@@ -162,22 +164,22 @@ export function Articles() {
     </div>
   );
 
-  const featuredPost = <ArticlesPost {...featured} />;
+  const featuredCertificate = featured && <CertificatePost {...featured} />;
 
   return (
-    <article className={styles.articles}>
+    <article className={styles.certificates}>
       <Section className={styles.content}>
         {!isSingleColumn && (
           <div className={styles.grid}>
-            {postList}
-            {featuredPost}
+            {certificateList}
+            {featuredCertificate}
           </div>
         )}
         {isSingleColumn && (
           <div className={styles.grid}>
-            {postsHeader}
-            {featuredPost}
-            {postList}
+            {certificatesHeader}
+            {featuredCertificate}
+            {certificateList}
           </div>
         )}
       </Section>
@@ -201,4 +203,4 @@ function Barcode({ className }) {
       />
     </svg>
   );
-}
+} 

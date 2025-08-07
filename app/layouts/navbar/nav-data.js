@@ -2,37 +2,37 @@ import config from '~/config.json';
 
 export const navLinks = [
   {
-    label: 'Projects',
+    label: 'Dự án',
     pathname: '/#project-1',
   },
   {
-    label: 'Details',
+    label: 'Chi tiết',
     pathname: '/#details',
   },
   {
-    label: 'Articles',
-    pathname: '/articles',
+    label: 'Chứng chỉ',
+    pathname: '/certificates',
   },
   {
-    label: 'Contact',
+    label: 'Liên hệ',
     pathname: '/contact',
   },
 ];
 
 export const socialLinks = [
   {
-    label: 'Bluesky',
-    url: `https://bsky.app/profile/${config.bluesky}`,
-    icon: 'bluesky',
+    label: 'Facebook',
+    url: `https://www.facebook.com/Huynhqui.081/`,
+    icon: 'facebook',
   },
   {
-    label: 'Figma',
-    url: `https://www.figma.com/${config.figma}`,
-    icon: 'figma',
+    label: 'Zalo',
+    url: `https://zalo.me/0399457517`,
+    icon: 'zalo',
   },
   {
-    label: 'Github',
-    url: `https://github.com/${config.github}`,
-    icon: 'github',
+    label: 'Telegram',
+    url: `https://t.me/+84888822204`,
+    icon: 'telegram',
   },
 ];

@@ -1,15 +1,15 @@
-import gamestackTexture2Large from '~/assets/gamestack-list-large.jpg';
+import gamestackTexture2Large from '~/assets/tamnong1.jpg';
 import gamestackTexture2Placeholder from '~/assets/gamestack-list-placeholder.jpg';
-import gamestackTexture2 from '~/assets/gamestack-list.jpg';
-import gamestackTextureLarge from '~/assets/gamestack-login-large.jpg';
+import gamestackTexture2 from '~/assets/tamnong2.jpg';
+import gamestackTextureLarge from '~/assets/tamnong2.jpg';
 import gamestackTexturePlaceholder from '~/assets/gamestack-login-placeholder.jpg';
 import gamestackTexture from '~/assets/gamestack-login.jpg';
-import sliceTextureLarge from '~/assets/slice-app-large.jpg';
+import sliceTextureLarge from '~/assets/hshop.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceTexture from '~/assets/slice-app.jpg';
-import sprTextureLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
+import sliceTexture from '~/assets/hshop.jpg';
+import sprTextureLarge from '~/assets/gieoduyen.jpg';
 import sprTexturePlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from '~/assets/spr-lesson-builder-dark.jpg';
+import sprTexture from '~/assets/gieoduyen.jpg';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -41,7 +41,7 @@ export const links = () => {
 
 export const meta = () => {
   return baseMeta({
-    title: 'Designer + Developer',
+    title: 'Marketer + Developer',
     description: `Design portfolio of ${config.name} — a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility.`,
   });
 };
@@ -103,9 +103,9 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
-        buttonText="View project"
+        title="Xây dựng trang web tạo & mua thiệp cưới online"
+        description="Xây dựng nền tảng cho phép người dùng mua template và tạo & chỉnh sửa thiệp cưới online"
+        buttonText="Xem dự án"
         buttonLink="/projects/smart-sparrow"
         model={{
           type: 'laptop',
@@ -124,10 +124,10 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
-        buttonText="View website"
-        buttonLink="https://gamestack.hamishw.com"
+        title="Website thương mại - dự án khởi nghiệp Tâm Nông"
+        description="Thiết kế và xây dựng website thương mại điện tử, tích hợp cá nhân hóa mua hàng bằng A.I"
+        buttonText="Xem website"
+        buttonLink="https://tamnongvn.com"
         model={{
           type: 'phone',
           alt: 'App login screen',
@@ -148,10 +148,10 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        buttonText="View project"
-        buttonLink="/projects/slice"
+        title="Website Ecommerce về Linh kiện điện tử"
+        description="Hshop (Hardware Shop) website tích hợp các cổng thanh toán đa dạng."
+        buttonText="Xem website"
+        buttonLink="https://hshop.vn/"
         model={{
           type: 'laptop',
           alt: 'Annotating a biomedical image in the Slice app',

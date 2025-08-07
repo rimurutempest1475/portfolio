@@ -11,7 +11,7 @@ import { useWindowSize } from '~/hooks';
 import { Suspense, lazy, useState } from 'react';
 import { cssProps, media } from '~/utils/style';
 import { useHydrated } from '~/hooks/useHydrated';
-import katakana from './katakana.svg';
+import frenchText from './french-text.svg';
 import styles from './project-summary.module.css';
 
 const Model = lazy(() =>
@@ -47,7 +47,7 @@ export function ProjectSummary({
     setModelLoaded(true);
   }
 
-  function renderKatakana(device, visible) {
+  function renderFrenchText(device, visible) {
     return (
       <svg
         type="project"
@@ -58,7 +58,7 @@ export function ProjectSummary({
         data-device={device}
         viewBox="0 0 751 136"
       >
-        <use href={`${katakana}#katakana-project`} />
+        <use href={`${frenchText}#french-project`} />
       </svg>
     );
   }
@@ -103,7 +103,7 @@ export function ProjectSummary({
       <div className={styles.preview}>
         {model.type === 'laptop' && (
           <>
-            {renderKatakana('laptop', visible)}
+            {renderFrenchText('laptop', visible)}
             <div className={styles.model} data-device="laptop">
               {!modelLoaded && (
                 <Loader center className={styles.loader} data-visible={visible} />
@@ -133,7 +133,7 @@ export function ProjectSummary({
         )}
         {model.type === 'phone' && (
           <>
-            {renderKatakana('phone', visible)}
+            {renderFrenchText('phone', visible)}
             <div className={styles.model} data-device="phone">
               {!modelLoaded && (
                 <Loader center className={styles.loader} data-visible={visible} />

@@ -1,6 +1,6 @@
 @custom-media --singleColumnWidth (max-width: 1190px);
 
-.articles {
+.certificates {
   display: grid;
   align-items: start;
   justify-items: center;
@@ -287,6 +287,11 @@
   margin-bottom: var(--spaceS);
 }
 
+.issuer {
+  color: var(--colorTextLight);
+  font-style: italic;
+}
+
 .postImage {
   position: absolute;
   inset: 0;
@@ -386,4 +391,4 @@
   &:global {
     animation: fade-in 0.8s var(--bezierFastoutSlowin) forwards 0.4s;
   }
-}
+} 

@@ -18,7 +18,8 @@ export const Monogram = forwardRef(({ highlight, className, ...props }, ref) => 
     >
       <defs>
         <clipPath id={clipId}>
-          <path d="M0 0h6.5a6 6 0 0 1 5.2 3.1L19.4 17l4-9L19 0h6.5a6 6 0 0 1 5.2 3.1L39.5 19 35 29 24.5 10 16 29 0 0Zm46.7 2.8A2 2 0 0 0 45 0h-7l5.5 10 3.2-7.2Z" />
+          {/* 👇 Path SVG đã được thay đổi thành chữ Q */}
+          <path d="M47.5,14.5 A23.5,14 0 1,1 0.5,14.5 A23.5,14 0 1,1 47.5,14.5 Z M41,14.5 A17,7.5 0 1,0 7,14.5 A17,7.5 0 1,0 41,14.5 Z M28,21 L48,29 L41,29 L24,19 Z" />
         </clipPath>
       </defs>
       <rect clipPath={`url(#${clipId})`} width="100%" height="100%" />
