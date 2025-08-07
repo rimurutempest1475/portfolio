@@ -1,4 +1,4 @@
-import { json } from '@remix-run/cloudflare';
+import { json } from '@remix-run/node';
 import { Certificates } from './certificates';
 
 export const meta = () => [

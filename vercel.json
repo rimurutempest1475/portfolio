@@ -5,10 +5,7 @@
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "functions": {
-    "app/root.jsx": {
-      "runtime": "nodejs18.x"
-    },
-    "app/entry.server.jsx": {
+    "build/index.js": {
       "runtime": "nodejs18.x"
     }
   },
