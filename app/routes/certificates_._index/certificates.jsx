@@ -48,7 +48,7 @@ function CertificatePost({ id, title, issuer, date, image, description, featured
             noPauseButton
             play={!reduceMotion ? hovered : undefined}
             src={image}
-            placeholder={`${image.split('.')[0]}-placeholder.jpg`}
+            placeholder={image}
             alt=""
             role="presentation"
           />

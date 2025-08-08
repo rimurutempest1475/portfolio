@@ -11,8 +11,8 @@ export async function action({ request, context }) {
       maxAge: 604_800,
       path: '/',
       sameSite: 'lax',
-      secrets: [context.cloudflare.env.SESSION_SECRET || ' '],
-      secure: true,
+      secrets: [process.env.SESSION_SECRET || 'default-secret'],
+      secure: process.env.NODE_ENV === 'production',
     },
   });
 
