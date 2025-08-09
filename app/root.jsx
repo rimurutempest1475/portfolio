@@ -60,7 +60,7 @@ export const loader = async ({ request, context }) => {
       path: '/',
       sameSite: 'lax',
       secrets: [process.env.SESSION_SECRET || 'default-secret'],
-      secure: true,
+      secure: process.env.NODE_ENV === 'production',
     },
   });
 
