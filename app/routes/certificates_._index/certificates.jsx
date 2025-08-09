@@ -11,13 +11,14 @@ import { useWindowSize } from '~/hooks';
 import { Link as RouterLink, useLoaderData } from '@remix-run/react';
 import { useState, useEffect } from 'react';
 import { formatDate } from '~/utils/date';
-import { classes, cssProps } from '~/utils/style';
+import { classes, cssProps, media } from '~/utils/style';
 import styles from './certificates.module.css';
 
-function CertificatePost({ id, title, issuer, date, image, description, featured, index }) {
+function CertificatePost({ id, title, issuer, date, image, description, featured, index, onSelect }) {
   const [hovered, setHovered] = useState(false);
   const [dateTime, setDateTime] = useState(null);
   const reduceMotion = useReducedMotion();
+  const isMobile = useWindowSize().width < 768;
 
   useEffect(() => {
     setDateTime(formatDate(date));
@@ -34,8 +35,12 @@ function CertificatePost({ id, title, issuer, date, image, description, featured
   return (
     <article
       className={styles.post}
-      data-featured={!!featured}
+      data-featured={featured ? 'true' : 'false'}
       style={index !== undefined ? cssProps({ delay: index * 100 + 200 }) : undefined}
+      onClick={() => onSelect?.(image)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={e => e.key === 'Enter' && onSelect?.(image)}
     >
       {featured && (
         <Text className={styles.postLabel} size="s">
@@ -54,10 +59,7 @@ function CertificatePost({ id, title, issuer, date, image, description, featured
           />
         </div>
       )}
-      <RouterLink
-        unstable_viewTransition
-        prefetch="intent"
-        to={`/certificates/${id}`}
+      <div
         className={styles.postLink}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -85,13 +87,33 @@ function CertificatePost({ id, title, issuer, date, image, description, featured
             </Text>
           </div>
         </div>
-      </RouterLink>
+      </div>
       {featured && (
         <Text aria-hidden className={styles.postTag} size="s">
           {id}
         </Text>
       )}
     </article>
+  );
+}
+
+function CertificateModal({ image, onClose }) {
+  if (!image) return null;
+
+  return (
+    <div className={styles.modalOverlay} onClick={onClose}>
+      <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+        <button className={styles.closeButton} onClick={onClose} aria-label="Đóng">
+          ×
+        </button>
+        <Image
+          src={image}
+          placeholder={`${image.split('.')[0]}-placeholder.jpg`}
+          alt="Chứng chỉ được chọn"
+          className={styles.modalImage}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -138,6 +160,7 @@ function SkeletonPost({ index }) {
 export function Certificates() {
   const { certificates, featured } = useLoaderData();
   const { width } = useWindowSize();
+  const [selectedImage, setSelectedImage] = useState(null);
   const singleColumnWidth = 1190;
   const isSingleColumn = width <= singleColumnWidth;
 
@@ -154,8 +177,11 @@ export function Certificates() {
     <div className={styles.list}>
       {!isSingleColumn && certificatesHeader}
       {certificates.map((certificate, index) => (
-        <CertificatePost key={certificate.id} index={index} {...certificate} />
+        <CertificatePost key={certificate.id} index={index} {...certificate} onSelect={setSelectedImage} />
       ))}
+      {featured && (
+        <CertificatePost {...featured} onSelect={setSelectedImage} />
+      )}
       {Array(2)
         .fill()
         .map((skeleton, index) => (
@@ -167,24 +193,27 @@ export function Certificates() {
   const featuredCertificate = featured && <CertificatePost {...featured} />;
 
   return (
-    <article className={styles.certificates}>
-      <Section className={styles.content}>
-        {!isSingleColumn && (
-          <div className={styles.grid}>
-            {certificateList}
-            {featuredCertificate}
-          </div>
-        )}
-        {isSingleColumn && (
-          <div className={styles.grid}>
-            {certificatesHeader}
-            {featuredCertificate}
-            {certificateList}
-          </div>
-        )}
-      </Section>
-      <Footer />
-    </article>
+    <div>
+      <article className={styles.certificates}>
+        <Section className={styles.content}>
+          {!isSingleColumn && (
+            <div className={styles.grid}>
+              {certificateList}
+              {featuredCertificate}
+            </div>
+          )}
+          {isSingleColumn && (
+            <div className={styles.grid}>
+              {certificatesHeader}
+              {featuredCertificate}
+              {certificateList}
+            </div>
+          )}
+        </Section>
+        <Footer />
+      </article>
+      <CertificateModal image={selectedImage} onClose={() => setSelectedImage(null)} />
+    </div>
   );
 }
 
